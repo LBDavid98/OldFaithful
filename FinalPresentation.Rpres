@@ -1,0 +1,53 @@
+Old Faithful Geyser Eruptions Predictor
+========================================================
+author: David Hook
+date: 1/31/2016
+
+Coursera Data Science Specialization  
+Developing Data Products - Final Project
+
+Sales Pitch
+========================================================
+
+Ever found yourself in yellowstone national park waiting
+for a geyser to erupt? Who hasn't?! The worst part is wondering
+to yourself: will the wait be worth it?  
+<br>With our new Shiny App you can estimate based on how long you've been waiting how
+long the final eruption will be!
+* A simple slider on the left makes the app super easy to use
+* slide to estimate how long you've been waiting or plan to wait
+* on the right side you'll see graph and a large magenta dot indicating how many minutes the eruption will last
+
+
+Slide With Code
+========================================================
+
+Using data carefully gathered and included in the R library, we will use the observations of 272 previous eruptions and the time elapsed before each to predict the average length of an eruption.
+
+```{r}
+data(faithful)
+dim(faithful)[1]
+summary(faithful)
+```
+
+
+Building our model
+========================================================
+
+We build a single coefficient linear model and plot the regression line in red.  
+```{r, echo=FALSE}
+model <- lm(eruptions ~ waiting, data=faithful)
+plot(faithful$waiting, faithful$eruptions,pch=19,col="blue",xlab="Waiting",ylab="Duration" )
+abline(model, col="red")
+```
+
+Try it yourself!
+===
+Now that you see the great value in being able to estimate the approximate duration of a geyser eruption 
+using the time you've waited, I doubt you'll ever want to wait without such a valuable tool at your disposal!
+Visit our application at shinyio and try it for yourself!  
+* <a href="https://lbdavid98.shinyapps.io/FinalProject/">https://lbdavid98.shinyapps.io/FinalProject/</a>
+
+I believe you'll find it meets the requirements for this project exactly, if just barely. :) Cheers!
+
+
